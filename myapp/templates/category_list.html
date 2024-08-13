@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Category List</title>
+    </head>
+    <body>
+        <h1>Category List</h1>
+
+        <a href="{% url 'category_create' %}">Create New Category</a>
+        <ul>
+            {% for category in categories %}
+                <li>
+                    <h2>{{ category.name }}</h2>
+                    <p>Created by: {{ category.user.username }}</p>
+                    <img src="{{ category.image.url }}" alt="{{ category.name }}">
+                    <p>Created at: {{ category.created_at }} </p>
+                </li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
